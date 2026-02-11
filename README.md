@@ -1,2 +1,36 @@
-# Liquidador_de_nomina
-Es una aplicación académica que calcula la nómina de un empleado según salario, días trabajados, horas extra, auxilio y deducciones. El proyecto aplica principios de Código Limpio mediante módulos claros, validaciones y lógica separada para facilitar mantenimiento y pruebas.
+liquidador_de_nomina
+Proyecto académico en Python para la materia Código Limpio.
+La aplicación liquida la nómina de un trabajador dependiente en Colombia, calculando devengados, deducciones legales y el valor neto a pagar, incorporando reglas básicas de incapacidades y validaciones.
+ENTRADAS DEL SISTEMA
+- Salario base mensual
+- Días del periodo (por defecto 30)
+- Días trabajados
+- Días de incapacidad
+- Auxilio de transporte (si aplica)
+- Bonificaciones u otros ingresos
+- Deducciones adicionales
+PROCESOS
+1. Cálculo del salario proporcional
+- Valor día = salario_base / días_periodo
+- Pago por días trabajados
+- Ajuste por incapacidades
+2. Gestión de incapacidades
+- Días 1 y 2: 100%
+- Desde el día 3: 66.66%
+- Validación: los días de incapacidad no pueden superar el periodo
+3. Auxilio de transporte
+- Aplica hasta 2 salarios mínimos
+- Se prorratea
+4. Deducciones
+- Salud: 4%
+- Pensión: 4%
+- Fondo solidaridad: 1% desde 4 SMMLV (opcional)
+5. Cálculo final
+- Total devengado
+- Total deducciones
+- Neto a pagar
+SALIDAS
+- Total devengado
+- Total deducciones
+- Neto a pagar
+
