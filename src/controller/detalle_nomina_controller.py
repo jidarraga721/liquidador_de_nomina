@@ -62,3 +62,13 @@ class DetalleNominaController:
         cursor = connection.cursor()
 
         return cursor
+    def borrar_tabla():
+
+        cursor = DetalleNominaController.obtener_cursor()
+
+        with open("sql/borrar-detalle.sql", "r") as archivo:
+            consulta = archivo.read()
+
+        cursor.execute(consulta)
+
+        cursor.connection.commit()

@@ -86,3 +86,13 @@ class EmpleadosController:
         )
 
         return empleado
+    def borrar_tabla():
+
+        cursor = EmpleadosController.obtener_cursor()
+
+        with open("sql/borrar-empleados.sql", "r") as archivo:
+            consulta = archivo.read()
+
+        cursor.execute(consulta)
+
+        cursor.connection.commit()

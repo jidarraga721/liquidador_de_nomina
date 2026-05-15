@@ -101,3 +101,13 @@ class NominaController:
         )
 
         return nomina
+    def borrar_tabla():
+
+        cursor = NominaController.obtener_cursor()
+
+        with open("sql/borrar-nomina.sql", "r") as archivo:
+            consulta = archivo.read()
+
+        cursor.execute(consulta)
+
+        cursor.connection.commit()
