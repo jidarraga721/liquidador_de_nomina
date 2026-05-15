@@ -7,7 +7,7 @@ import psycopg2
 
 from model.detalle_nomina import DetalleNomina
 
-import secret_config_sample
+import secret_config
 
 
 class DetalleNominaController:
@@ -52,11 +52,11 @@ class DetalleNominaController:
     def obtener_cursor():
 
         connection = psycopg2.connect(
-            database=secret_config_sample.PGDATABASE,
-            user=secret_config_sample.PGUSER,
-            password=secret_config_sample.PGPASSWORD,
-            host=secret_config_sample.PGHOST,
-            port=secret_config_sample.PGPORT
+            database=secret_config.PGDATABASE,
+            user=secret_config.PGUSER,
+            password=secret_config.PGPASSWORD,
+            host=secret_config.PGHOST,
+            port=secret_config.PGPORT
         )
 
         cursor = connection.cursor()
