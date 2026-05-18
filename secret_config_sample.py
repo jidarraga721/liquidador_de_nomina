@@ -1,0 +1,5 @@
+PGHOST = "localhost"
+PGDATABASE = "liquidador_nomina"
+PGUSER = "postgres"
+PGPASSWORD = "123456"
+PGPORT = "5432"

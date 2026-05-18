@@ -1,5 +1,5 @@
 import unittest
-from src.model.logica_liq_nom import (
+from src.Logica.logica_liq_nom import (
     Nomina,
     NominaCalculator,
     SalarioBaseError,
