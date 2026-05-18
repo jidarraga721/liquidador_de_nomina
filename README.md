@@ -76,13 +76,14 @@ secret_config_sample.py
 con el siguiente contenido:
 
 ```python
-PGHOST = "localhost"
-PGDATABASE = "liquidador_nomina"
-PGUSER = "postgres"
-PGPASSWORD = "TU_PASSWORD"
+PGHOST = "HOST_DATABASE"
+PGDATABASE = "NOMBRE_DATABASE"
+PGUSER = "USUARIO_DATABASE"
+PGPASSWORD = "PASSWORD_DATABASE"
 PGPORT = "5432"
 ```
 
+Las credenciales pueden corresponder a una base de datos local PostgreSQL o a un servicio en la nube como Render.
 ### 6. Ejecutar la aplicación
 
 ```bash
