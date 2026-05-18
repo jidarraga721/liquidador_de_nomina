@@ -1,51 +1,99 @@
 # Liquidador de Nómina
 
-Proyecto académico desarrollado en Python para la materia **Código Limpio**.
+Proyecto académico desarrollado en Python para la materia **Código Limpio**.  
 La aplicación permite liquidar la nómina de un trabajador dependiente en Colombia, calculando devengados, deducciones legales y el valor neto a pagar, incorporando reglas básicas de incapacidades y validaciones.
 
 ---
 
-##  Autores
+## Autores
 
-* Manolo Restrepo Gil
-* Juan David Idarraga Porras
-* Hans Schoonewolff Otero
+* Manolo Restrepo Gil  
+* Juan David Idarraga Porras  
+* Hans Schoonewolff Otero  
 
 ---
 
-##  Requisitos
+## Requisitos
 
 * Python 3.x instalado en el sistema
+* PostgreSQL instalado y en ejecución
+* Librería psycopg2
 
 ---
 
-##  Instalación y ejecución
+## Tecnologías utilizadas
+
+- Python 3
+- PostgreSQL
+- psycopg2
+- unittest
+- Arquitectura MVC
+
+---
+
+## Instalación y ejecución
 
 Siga los siguientes pasos para ejecutar el proyecto:
 
-1. Clonar el repositorio:
+### 1. Clonar el repositorio
 
-   ```bash
-   git clone https://github.com/usuario/repositorio.git
-   ```
+```bash
+git clone https://github.com/usuario/repositorio.git
+```
 
-2. Ingresar al directorio del proyecto:
+### 2. Ingresar al directorio del proyecto
 
-   ```bash
-   cd liquidador_de_nomina
-   ```
+```bash
+cd liquidador_de_nomina
+```
 
-3. Ejecutar la aplicación:
+### 3. Instalar dependencias
 
-   ```bash
-   python main.py
-   ```
+```bash
+pip install psycopg2-binary
+```
+
+### 4. Crear base de datos PostgreSQL
+
+```sql
+CREATE DATABASE liquidador_nomina;
+```
+
+### 5. Configurar credenciales
+
+Crear un archivo llamado:
+
+```text
+secret_config.py
+```
+
+basado en:
+
+```text
+secret_config_sample.py
+```
+
+con el siguiente contenido:
+
+```python
+PGHOST = "localhost"
+PGDATABASE = "liquidador_nomina"
+PGUSER = "postgres"
+PGPASSWORD = "TU_PASSWORD"
+PGPORT = "5432"
+```
+
+### 6. Ejecutar la aplicación
+
+```bash
+python main.py
+```
 
 > Nota: Si el archivo principal tiene otro nombre, reemplácelo en el comando anterior.
 
 ---
 
-##  Uso de la aplicación
+## Uso de la aplicación
 
 Al ejecutar el programa, el sistema solicitará los datos necesarios para realizar la liquidación de la nómina.
 
@@ -69,9 +117,7 @@ Una vez ingresados los datos, el sistema procesará la información automáticam
 
 ---
 
-##  Ejemplo de ejecución
-
-Ejemplo de interacción con el programa:
+## Ejemplo de ejecución
 
 ```text
 Ingrese salario base: 1300000
@@ -85,7 +131,7 @@ Ingrese bonificaciones: 0
 Ingrese deducciones adicionales: 0
 ```
 
-Salida esperada:
+### Salida esperada
 
 ```text
 Total devengado: $1.450.000
@@ -95,7 +141,7 @@ Neto a pagar: $1.334.000
 
 ---
 
-##  Entradas del sistema
+## Entradas del sistema
 
 * Salario base mensual
 * Días del periodo (por defecto 30)
@@ -109,7 +155,7 @@ Neto a pagar: $1.334.000
 
 ---
 
-##  Procesos
+## Procesos
 
 ### 1. Cálculo del salario proporcional
 
@@ -143,7 +189,7 @@ Neto a pagar: $1.334.000
 
 ---
 
-##  Salidas
+## Salidas
 
 * Total devengado
 * Total deducciones
@@ -151,13 +197,85 @@ Neto a pagar: $1.334.000
 
 ---
 
-##  Consideraciones
+## Funcionalidades implementadas
+
+- Crear tablas
+- Borrar tablas
+- Insertar registros
+- Consultar registros
+- Liquidación de nómina
+- Validaciones de negocio
+- Pruebas unitarias con unittest
+
+Tablas utilizadas:
+
+- empleados
+- nomina
+- detalle_nomina
+
+---
+
+## Ejecutar pruebas unitarias
+
+Desde la raíz del proyecto ejecutar:
+
+```bash
+python -m unittest discover -s test -p "test_*.py" -v
+```
+
+---
+
+## Arquitectura MVC
+
+### Model
+
+Contiene las entidades y modelos del sistema.
+
+### Controller
+
+Contiene la lógica SQL y operaciones CRUD.
+
+### View Console
+
+Contiene la interfaz de consola para interacción con el usuario.
+
+### Test
+
+Contiene las pruebas unitarias utilizando unittest.
+
+---
+
+## Estructura del proyecto
+
+```text
+liquidador_de_nomina/
+│
+├── src/
+│   ├── controller/
+│   ├── model/
+│   ├── logica/
+│   └── view_console/
+│
+├── test/
+│   ├── __init__.py
+│   ├── test_empleado.py
+│   ├── test_nomina.py
+│   └── test_detalle_nomina.py
+│
+├── sql/
+│
+├── secret_config_sample.py
+├── README.md
+└── requirements.txt
+```
+
+---
+
+## Consideraciones
 
 * Los días de incapacidad no pueden superar los días del periodo.
 * El auxilio de transporte solo aplica para salarios hasta 2 SMMLV.
 * El fondo de solidaridad aplica únicamente para salarios superiores a 4 SMMLV.
-
----
-
-
-
+* PostgreSQL debe estar instalado y en ejecución.
+* La base de datos debe existir antes de ejecutar las pruebas.
+* Las credenciales reales no deben subirse al repositorio.
