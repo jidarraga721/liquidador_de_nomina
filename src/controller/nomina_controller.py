@@ -60,8 +60,9 @@ class NominaController:
             user=secret_config.PGUSER,
             password=secret_config.PGPASSWORD,
             host=secret_config.PGHOST,
-            port=secret_config.PGPORT
-        )
+            port=secret_config.PGPORT,
+            sslmode="require"
+    )
 
         cursor = connection.cursor()
 
@@ -101,3 +102,13 @@ class NominaController:
         )
 
         return nomina
+    def borrar_tabla():
+
+        cursor = NominaController.obtener_cursor()
+
+        with open("sql/borrar-nomina.sql", "r") as archivo:
+            consulta = archivo.read()
+
+        cursor.execute(consulta)
+
+        cursor.connection.commit()

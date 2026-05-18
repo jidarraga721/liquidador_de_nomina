@@ -56,9 +56,52 @@ class DetalleNominaController:
             user=secret_config.PGUSER,
             password=secret_config.PGPASSWORD,
             host=secret_config.PGHOST,
-            port=secret_config.PGPORT
-        )
+            port=secret_config.PGPORT,
+            sslmode="require"
+    )
 
         cursor = connection.cursor()
 
         return cursor
+    
+    def borrar_tabla():
+
+        cursor = DetalleNominaController.obtener_cursor()
+
+        with open("sql/borrar-detalle.sql", "r") as archivo:
+            consulta = archivo.read()
+
+        cursor.execute(consulta)
+
+        cursor.connection.commit()
+    def buscar_detalle(id_detalle):
+
+        cursor = DetalleNominaController.obtener_cursor()
+
+        consulta = f"""
+        SELECT
+        id_nomina,
+        tipo,
+        concepto,
+        valor
+
+        FROM detalle_nomina
+
+        WHERE id_detalle = {id_detalle}
+        """
+
+        cursor.execute(consulta)
+
+        fila = cursor.fetchone()
+
+        if fila is None:
+            return None
+
+        detalle = DetalleNomina(
+            id_nomina=fila[0],
+            tipo=fila[1],
+            concepto=fila[2],
+            valor=fila[3]
+        )
+
+        return detalle
