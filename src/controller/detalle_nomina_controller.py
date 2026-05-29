@@ -1,13 +1,14 @@
-import sys
 
+import sys
 sys.path.append(".")
-sys.path.append("src")
 
 import psycopg2
-
-from model.detalle_nomina import DetalleNomina
-
 import secret_config
+import psycopg2
+
+from src.model.detalle_nomina import DetalleNomina
+import sys
+
 
 
 class DetalleNominaController:

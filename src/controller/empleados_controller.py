@@ -1,13 +1,13 @@
 import sys
-
 sys.path.append(".")
-sys.path.append("src")
 
-import psycopg2
-
-from model.empleado import Empleado
 
 import secret_config
+import psycopg2
+
+from src.model.empleado import Empleado
+import sys
+
 
 
 class EmpleadosController:
