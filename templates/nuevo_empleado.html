@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuevo empleado</title>
+</head>
+
+<body>
+
+    <h1>Crear Empleado</h1>
+
+    <form action="/guardar-empleado" method="POST">
+
+        <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre"
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="cedula"
+            placeholder="Cedula"
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="cargo"
+            placeholder="Cargo"
+        >
+
+        <br><br>
+
+        <input
+            type="number"
+            name="salario_base"
+            placeholder="Salario"
+        >
+
+        <br><br>
+
+        <input
+            type="date"
+            name="fecha_ingreso"
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Guardar
+        </button>
+
+    </form>
+
+</body>
+</html>
