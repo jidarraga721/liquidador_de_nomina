@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Empleado</title>
+</head>
+
+<body>
+
+    <h1>Buscar Empleado</h1>
+
+    <form method="POST">
+
+        <label>Cédula:</label>
+        <input type="text" name="cedula">
+
+        <button type="submit">
+            Buscar
+        </button>
+
+    </form>
+    <hr>
+
+{% if empleado %}
+
+    <h2>Empleado encontrado</h2>
+
+    <p><strong>Nombre:</strong> {{ empleado.nombre }}</p>
+    <p><strong>Cédula:</strong> {{ empleado.cedula }}</p>
+    <p><strong>Cargo:</strong> {{ empleado.cargo }}</p>
+    <p><strong>Salario:</strong> {{ empleado.salario_base }}</p>
+    <p><strong>Fecha ingreso:</strong> {{ empleado.fecha_ingreso }}</p>
+
+{% else %}
+
+    <p>No se encontró empleado</p>
+
+{% endif %}
+
+</body>
+
+</html>

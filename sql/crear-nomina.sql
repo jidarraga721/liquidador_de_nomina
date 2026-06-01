@@ -1,4 +1,4 @@
-CREATE TABLE nomina (
+CREATE TABLE IF NOT EXISTS nomina (
 
     id_nomina SERIAL PRIMARY KEY,
 

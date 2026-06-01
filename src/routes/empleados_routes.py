@@ -45,6 +45,7 @@ def guardar_empleado():
         fecha_ingreso=fecha_ingreso
     )
 
+
     EmpleadosController.insertar(empleado)
 
     return redirect('/empleados')

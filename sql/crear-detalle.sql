@@ -1,4 +1,4 @@
-CREATE TABLE detalle_nomina (
+CREATE TABLE IF NOT EXISTS detalle_nomina (
 
     id_detalle SERIAL PRIMARY KEY,
 

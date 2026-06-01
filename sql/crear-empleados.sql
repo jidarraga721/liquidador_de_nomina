@@ -1,4 +1,4 @@
-CREATE TABLE empleados (
+CREATE TABLE IF NOT EXISTS empleados (
 
     id_empleado SERIAL PRIMARY KEY,
 

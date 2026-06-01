@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar Empleado</title>
+</head>
+
+<body>
+
+    <h1>Insertar Empleado</h1>
+
+    <form action="/guardar-empleado" method="POST">
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre">
+        <br><br>
+
+        <label>Cédula:</label>
+        <input type="text" name="cedula">
+        <br><br>
+
+        <label>Cargo:</label>
+        <input type="text" name="cargo">
+        <br><br>
+
+        <label>Salario Base:</label>
+        <input type="number" name="salario_base">
+        <br><br>
+
+        <label>Fecha Ingreso:</label>
+        <input type="date" name="fecha_ingreso">
+        <br><br>
+
+        <button type="submit">
+            Guardar Empleado
+        </button>
+
+    </form>
+
+</body>
+
+</html>

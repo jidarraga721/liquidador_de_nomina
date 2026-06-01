@@ -59,33 +59,36 @@ class EmpleadosController:
         return cursor
     def buscar_empleado(cedula):
 
-        cursor = EmpleadosController.obtener_cursor()
+            cursor = EmpleadosController.obtener_cursor()
 
-        consulta = f"""
-        SELECT nombre, cedula, cargo,
-        salario_base, fecha_ingreso
+            consulta = f"""
+        SELECT nombre,
+       cedula,
+       cargo,
+       salario_base,
+       fecha_ingreso
 
         FROM empleados
 
         WHERE cedula = '{cedula}'
-        """
+"""
 
-        cursor.execute(consulta)
+            cursor.execute(consulta)
 
-        fila = cursor.fetchone()
+            fila = cursor.fetchone()
 
-        if fila is None:
-            return None
+            if fila is None:
+                return None
 
-        empleado = Empleado(
+            empleado = Empleado(
             nombre=fila[0],
             cedula=fila[1],
             cargo=fila[2],
             salario_base=fila[3],
             fecha_ingreso=fila[4]
         )
-
-        return empleado
+            return empleado
+    
     def borrar_tabla():
 
         cursor = EmpleadosController.obtener_cursor()
