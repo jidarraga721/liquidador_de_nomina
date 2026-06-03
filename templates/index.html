@@ -3,27 +3,56 @@
 
 <head>
     <title>Liquidador de Nómina</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <h1>Liquidador de Nómina</h1>
+    <div class="container">
 
-    <hr>
+        <h1>💼 Liquidador de Nómina</h1>
 
-    <h2>Menú Principal</h2>
+        <hr>
 
-    <ul>
-        <li>
-            Gestión de Empleados
-            <ul>
-                <li><a href="/insertar_empleado">Insertar Empleado</a></li>
-                <li><a href="/buscar_empleado">Buscar Empleado</a></li>
-            </ul>
-        </li>
+        <h2>Menú Principal</h2>
 
-        <li><a href="/crear_tablas">Crear Tablas BD</a></li>
-    </ul>
+        <ul>
+
+            <li>
+                <h3>👨‍💼 Gestión de Empleados</h3>
+
+                <ul>
+                    <li>
+                        <a href="/insertar_empleado">
+                            Insertar Empleado
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/buscar_empleado">
+                            Buscar Empleado
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <br>
+
+            <li>
+                <a href="/crear_tablas">
+                    Crear Tablas BD
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="footer">
+            Proyecto Código Limpio - Liquidador de Nómina
+        </div>
+
+    </div>
+
 </body>
 
 </html>
