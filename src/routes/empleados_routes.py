@@ -70,4 +70,3 @@ def buscar_empleado():
 @empleados_bp.route('/insertar_empleado')
 def insertar_empleado():
 
-    return render_template('insertar_empleado.html')
