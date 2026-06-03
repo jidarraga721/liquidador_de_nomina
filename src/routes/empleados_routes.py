@@ -49,3 +49,25 @@ def guardar_empleado():
     EmpleadosController.insertar(empleado)
 
     return redirect('/empleados')
+
+@empleados_bp.route('/buscar_empleado', methods=['GET', 'POST'])
+def buscar_empleado():
+
+    empleado = None
+
+    if request.method == 'POST':
+
+        cedula = request.form['cedula']
+
+        empleado = EmpleadosController.buscar_empleado(cedula)
+
+    return render_template(
+        'buscar_empleado.html',
+        empleado=empleado
+    )
+
+
+@empleados_bp.route('/insertar_empleado')
+def insertar_empleado():
+
+    return render_template('insertar_empleado.html')
