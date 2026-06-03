@@ -20,8 +20,7 @@ def crear_tablas():
 
     return "Tablas creadas correctamente"
 
-@app.route('/buscar_empleado', methods=['GET', 'POST'])
-def buscar_empleado():
+
 
     empleado = None
 
@@ -36,8 +35,7 @@ def buscar_empleado():
         empleado=empleado
     )
 
-@app.route('/insertar_empleado', methods=['GET', 'POST'])
-def insertar_empleado():
+
 
     if request.method == 'POST':
 
