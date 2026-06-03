@@ -1,6 +1,7 @@
 # Liquidador de Nómina
 
 Proyecto académico desarrollado en Python para la materia **Código Limpio**.
+
 La aplicación permite gestionar empleados, nóminas y detalles de nómina utilizando arquitectura MVC, PostgreSQL, Flask y pruebas unitarias.
 
 El sistema cuenta con funcionalidades web para insertar, consultar y gestionar información relacionada con la liquidación de nómina.
@@ -15,30 +16,32 @@ El sistema cuenta con funcionalidades web para insertar, consultar y gestionar i
 
 ---
 
-# Requisitos
-
-* Python 3.x instalado en el sistema
-* PostgreSQL instalado y en ejecución
-* Git instalado
-* Librería psycopg2
-
----
-
 # Tecnologías utilizadas
 
 * Python 3
 * Flask
 * PostgreSQL
 * psycopg2
-* unittest
+* Gunicorn
 * HTML5
 * CSS3
+* unittest
 * Arquitectura MVC
 * Blueprints de Flask
 
 ---
 
-# Instalación y ejecución
+# Requisitos
+
+Antes de ejecutar el proyecto asegúrese de tener instalado:
+
+* Python 3.x
+* PostgreSQL
+* Git
+
+---
+
+# Instalación y ejecución local
 
 Siga los siguientes pasos para ejecutar el proyecto localmente.
 
@@ -82,12 +85,6 @@ source venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
-```
-
-o manualmente:
-
-```bash
-pip install psycopg2-binary
 ```
 
 ---
@@ -140,13 +137,17 @@ Las credenciales pueden corresponder a una base de datos local PostgreSQL o a un
 
 El sistema permite crear automáticamente las tablas necesarias desde una base de datos vacía.
 
-Ejecutar:
+Ejecutar la aplicación:
 
 ```bash
-python main.py
+python app.py
 ```
 
-y seleccionar la opción correspondiente para crear tablas desde el menú principal.
+Luego ingresar en el navegador a:
+
+```text
+http://127.0.0.1:5000/crear_tablas
+```
 
 Las tablas creadas son:
 
@@ -159,12 +160,22 @@ Las tablas creadas son:
 ## 8. Ejecutar la aplicación
 
 ```bash
-python main.py
+python app.py
 ```
 
-> Nota: Si el archivo principal tiene otro nombre, reemplácelo en el comando anterior.
+La aplicación iniciará localmente en:
 
-La aplicación iniciará localmente permitiendo acceder a las funcionalidades web y de consola.
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+# Aplicación desplegada
+
+La aplicación se encuentra publicada en Render:
+
+https://liquidador-de-nomina-pzw0.onrender.com
 
 ---
 
@@ -181,54 +192,18 @@ La aplicación iniciará localmente permitiendo acceder a las funcionalidades we
 * Validaciones de negocio
 * Pruebas unitarias con unittest
 * Arquitectura MVC utilizando Blueprints de Flask
+* Aplicación desplegada en la nube mediante Render
 
 ---
 
 # Uso de la aplicación
 
-Al ejecutar el programa, el sistema mostrará un menú con funcionalidades para:
+La aplicación cuenta con un menú web principal que permite:
 
-```text
-1. Insertar empleado
-2. Buscar empleado
-3. Insertar nomina
-4. Buscar nomina
-5. Insertar detalle nomina
-6. Buscar detalle nomina
-7. Crear tablas
-8. Salir
-```
-
-El usuario podrá insertar y consultar información relacionada con empleados, nómina y detalles de nómina utilizando PostgreSQL.
-
----
-
-# Ejemplo de ejecución
-
-```text
-============================
- SISTEMA DE NOMINA
-============================
-
-1. Insertar empleado
-2. Buscar empleado
-3. Insertar nomina
-4. Buscar nomina
-5. Insertar detalle nomina
-6. Buscar detalle nomina
-7. Crear tablas
-8. Salir
-```
-
----
-
-# Salida esperada
-
-```text
-Total devengado: $1.450.000
-Total deducciones: $116.000
-Neto a pagar: $1.334.000
-```
+* Crear tablas de base de datos
+* Insertar empleados
+* Buscar empleados
+* Gestionar información de nómina
 
 ---
 
@@ -256,6 +231,10 @@ Contiene la lógica SQL y operaciones CRUD.
 
 Contiene las vistas web y de consola para interacción con el usuario.
 
+## Routes
+
+Contiene las rutas implementadas mediante Blueprints de Flask.
+
 ## Test
 
 Contiene las pruebas unitarias utilizando unittest.
@@ -271,9 +250,10 @@ liquidador_de_nomina/
 │   ├── controller/
 │   ├── model/
 │   ├── logica/
-│   ├── view_console/
-│   ├── views/
-│   └── templates/
+│   ├── routes/
+│   └── views/
+│
+├── templates/
 │
 ├── test/
 │   ├── __init__.py
@@ -283,10 +263,11 @@ liquidador_de_nomina/
 │
 ├── sql/
 │
-├── secret_config_sample.py
-├── README.md
+├── app.py
 ├── requirements.txt
-└── main.py
+├── README.md
+├── secret_config_sample.py
+└── .gitignore
 ```
 
 ---
@@ -300,8 +281,8 @@ Funcionalidades disponibles:
 * Página principal
 * Inserción de empleados
 * Consulta de empleados
-* Gestión de nómina
 * Navegación mediante menú principal
+* Creación automática de tablas
 
 ---
 
@@ -322,3 +303,5 @@ Funcionalidades disponibles:
 Repositorio oficial del proyecto:
 
 https://github.com/jidarraga721/liquidador_de_nomina
+
+---
