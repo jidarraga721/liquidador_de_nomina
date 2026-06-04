@@ -12,7 +12,6 @@ El sistema cuenta con funcionalidades web para insertar, consultar y gestionar i
 
 * Manolo Restrepo Gil
 * Juan David Idarraga Porras
-* Hans Schoonewolff Otero
 
 ---
 
